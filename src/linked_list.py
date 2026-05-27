@@ -70,10 +70,12 @@ class LinkedList:
     # ------------------------------------------------------------------ #
     # Esqueleto de referencia
     def search(self, data):
-        current = self.head
+        current_node = self.head
         while current is not None:
             if current.data == data:
                 return current
             current = current.next
         return None
             
+
+
