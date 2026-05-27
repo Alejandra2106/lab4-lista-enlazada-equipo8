@@ -31,7 +31,7 @@ def test_node_repr():
 # Pruebas Equipo C — search
 # ------------------------------------------------------------------ #
 
-def test_search_un_elemento():
+def test_search_elemento_existente():
     ll = LinkedList()
 
     ll.head = Node(10)
