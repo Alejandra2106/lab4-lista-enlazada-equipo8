@@ -54,3 +54,9 @@ def test_append_orden_preservado():
     for expected in [5, 10, 15]:
         assert current.data == expected
         current = current.next
+
+
+def test_append_none_debe_fallar():
+    ll = LinkedList()
+    with pytest.raises(ValueError):
+        ll.append(None) 
