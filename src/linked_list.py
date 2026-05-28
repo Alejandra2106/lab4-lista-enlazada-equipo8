@@ -88,13 +88,16 @@ class LinkedList:
     # ------------------------------------------------------------------ #
     # TODO — Equipo C: rama feature/search                                #
     # ------------------------------------------------------------------ #
+    # Esqueleto de referencia
     def search(self, data):
-        """Busca un valor en la lista.
+        current_node = self.head
 
-        Args:
-            data: El valor a buscar.
+        while current_node is not None:
+            if current_node.data == data:
+                return current_node
 
-        Returns:
-            El nodo que contiene data, o None si no existe.
-        """
-        raise NotImplementedError("Equipo C debe implementar search()")
+            current_node = current_node.next
+
+        return None
+
+
