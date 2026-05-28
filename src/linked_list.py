@@ -43,27 +43,47 @@ class LinkedList:
     # ------------------------------------------------------------------ #
     # TODO — Equipo A: rama feature/append                                #
     # ------------------------------------------------------------------ #
+    
     def append(self, data):
-        """Inserta un nuevo nodo al final de la lista.
+        if data is None:
+            raise ValueError("No se permite insertar None")
+        
+        # Caso de la lista vacía.
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+        # Caso de la lista no vacía.
+        else:
+            # Recorremos la lista hasta el último nodo.
+            current = self.head
+            while current.next:
+                current = current.next
+            # Enlazamos el nuevo nodo al final de la lista.
+            current.next = new_node
 
-        Args:
-            data: El valor a insertar.
-        """
-        raise NotImplementedError("Equipo A debe implementar append()")
 
     # ------------------------------------------------------------------ #
     # TODO — Equipo B: rama feature/delete                                #
     # ------------------------------------------------------------------ #
     def delete(self, data):
-        """Elimina el primer nodo cuyo valor sea igual a data.
+        # Caso 1: Lista Vacía
+        if self.head is None:
+            return False
+         
+        # Caso 2: Eliminar head
+        if self.head.data == data:
+            self.head = self.head.next
+            return True
+         
+        # Caso 3: Buscar en el resto de la lista
+        current = self.head
+        while current.next is not None:
+            if current.next.data == data:
+                current.next = current.next.next
+                return True
+        current = current.next
 
-        Args:
-            data: El valor a eliminar.
-
-        Returns:
-            True si el nodo fue eliminado, False si no se encontró.
-        """
-        raise NotImplementedError("Equipo B debe implementar delete()")
+        return False
 
     # ------------------------------------------------------------------ #
     # TODO — Equipo C: rama feature/search                                #
@@ -71,11 +91,13 @@ class LinkedList:
     # Esqueleto de referencia
     def search(self, data):
         current_node = self.head
-        while current is not None:
-            if current.data == data:
-                return current
-            current = current.next
+
+        while current_node is not None:
+            if current_node.data == data:
+                return current_node
+
+            current_node = current_node.next
+
         return None
-            
 
 

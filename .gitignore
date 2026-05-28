@@ -2,8 +2,12 @@
 __pycache__/
 *.py[codz]
 *$py.class
+<<<<<<< HEAD
  prueba_rapida.py
 
+=======
+prueba_rapida.py
+>>>>>>> origin/main
 # C extensions
 *.so
 
@@ -217,3 +221,5 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+prueba_rapida.py
